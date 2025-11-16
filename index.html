@@ -3,39 +3,206 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>dJ1fRee Records</title>
+  <title>dJ1fRee Records • Electronic Energy</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- HEADER -->
   <header class="header">
-    <div class="logo">dJ1fRee Records</div>
+    <div class="logo">dJ1fRee<span> Records</span></div>
     <nav class="nav">
-      <a href="#">Inicio</a>
-      <a href="#">Catálogo</a>
-      <a href="#">Playlists</a>
-      <a href="#">Artistas</a>
-      <a href="#">Vídeos</a>
-      <a href="#">Contacto</a>
+      <a href="#inicio">Inicio</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#playlists">Playlists</a>
+      <a href="#artistas">Artistas</a>
+      <a href="#videos">Vídeos</a>
+      <a href="#contacto">Contacto</a>
     </nav>
-    <button class="spotify-btn">Listen on Spotify</button>
+    <a class="spotify-btn" href="#" target="_blank" rel="noopener">Listen on Spotify</a>
   </header>
 
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Electronic Energy • Made in the Canary Islands</h1>
-      <p>Bienvenido al hogar de dJ1fRee, SiLiCe & Juan del Muelle.</p>
-      <button class="cta">Explorar catálogo</button>
-    </div>
-  </section>
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <h1>Electronic Energy • Made in the Canary Islands</h1>
+          <p>Bienvenido al hogar de dJ1fRee, SiLiCe &amp; Juan del Muelle. Electrónica, rap futurista y melodías de muelle en un solo sello.</p>
+          <div class="hero-actions">
+            <a href="#catalogo" class="btn primary">Explorar catálogo</a>
+            <a href="#playlists" class="btn ghost">Ver playlists</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="tag">Último lanzamiento</div>
+          <div class="cover mock-cover">SÚBELO</div>
+          <div class="hero-meta">
+            <h2>Súbelo</h2>
+            <p>dJ1fRee • Single</p>
+            <a href="#" class="btn small">Reproducir</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <section class="final-cta">
-    <h2>¿Listo para sumergirte en la onda eléctrica?</h2>
-    <button class="cta">Escuchar en Spotify</button>
-  </section>
+    <!-- ÚLTIMOS LANZAMIENTOS -->
+    <section class="section" id="catalogo">
+      <div class="section-header">
+        <h2>[ÚLTIMOS LANZAMIENTOS]</h2>
+        <a class="see-all" href="#">Ver todo el catálogo →</a>
+      </div>
+      <div class="grid releases-grid">
+        <article class="card release-card">
+          <div class="cover mock-cover">GYM WAVE</div>
+          <div class="card-body">
+            <h3>GYM WAVE: The Ultimate Workout Anthems</h3>
+            <p class="meta">dJ1fRee • Álbum</p>
+            <p class="tagline">Beats eléctricos para reventar el gimnasio con buen rollo.</p>
+            <div class="card-actions">
+              <a href="#" class="btn small">Play</a>
+              <span class="pill">Energy</span>
+            </div>
+          </div>
+        </article>
 
+        <article class="card release-card">
+          <div class="cover mock-cover alt">Humanidad Codificada</div>
+          <div class="card-body">
+            <h3>Humanidad Codificada</h3>
+            <p class="meta">SiLiCe • Single</p>
+            <p class="tagline">Rap reflexivo con ADN digital y conciencia artificial.</p>
+            <div class="card-actions">
+              <a href="#" class="btn small">Play</a>
+              <span class="pill pill-purple">Hip‑hop</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card release-card">
+          <div class="cover mock-cover">Beso en Los Cristianos</div>
+          <div class="card-body">
+            <h3>Beso en Los Cristianos</h3>
+            <p class="meta">Juan del Muelle • Single</p>
+            <p class="tagline">Recuerdos, mar y un muelle que nunca se olvida.</p>
+            <div class="card-actions">
+              <a href="#" class="btn small">Play</a>
+              <span class="pill pill-pink">Romántico</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PLAYLISTS DESTACADAS -->
+    <section class="section" id="playlists">
+      <div class="section-header">
+        <h2>[PLAYLISTS DESTACADAS]</h2>
+      </div>
+      <div class="grid playlists-grid">
+        <article class="card playlist-card">
+          <div class="badge">NEW</div>
+          <div class="cover playlist-cover">GYM MODE</div>
+          <div class="card-body">
+            <h3>GYM MODE ONLY</h3>
+            <p class="meta">Electronic • Pump • Cardio</p>
+            <p class="tagline">Una hora de energía pura para entrenar sin mirar el reloj.</p>
+            <a href="#" class="btn small">Abrir en Spotify</a>
+          </div>
+        </article>
+
+        <article class="card playlist-card">
+          <div class="cover playlist-cover alt">NIGHT DRIVE</div>
+          <div class="card-body">
+            <h3>Night Drive in Tenerife</h3>
+            <p class="meta">Synthwave • Chill • Road</p>
+            <p class="tagline">Beats electrónicos para perderte entre luces, túneles y autopistas.</p>
+            <a href="#" class="btn small">Abrir en Spotify</a>
+          </div>
+        </article>
+
+        <article class="card playlist-card">
+          <div class="cover playlist-cover">Lo-Fi Coding</div>
+          <div class="card-body">
+            <h3>Study / Coding Wave</h3>
+            <p class="meta">Lo‑Fi • Focus • Study</p>
+            <p class="tagline">Instrumentales para concentrarte, crear y programar sin distracciones.</p>
+            <a href="#" class="btn small">Abrir en Spotify</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ARTISTAS DEL SELLO -->
+    <section class="section" id="artistas">
+      <div class="section-header">
+        <h2>[ARTISTAS DEL SELLO]</h2>
+      </div>
+      <div class="artists-container">
+        <article class="artist-card">
+          <div class="avatar a1">dJ</div>
+          <div class="artist-info">
+            <h3>dJ1fRee</h3>
+            <p>Beats electrónicos, energía de gimnasio y himnos para reventar cualquier altavoz.</p>
+            <a href="#" class="btn ghost small">Ver perfil</a>
+          </div>
+        </article>
+
+        <article class="artist-card">
+          <div class="avatar a2">Si</div>
+          <div class="artist-info">
+            <h3>SiLiCe</h3>
+            <p>Rap reflexivo, conciencia artificial y barras salidas de la simulación.</p>
+            <a href="#" class="btn ghost small">Ver perfil</a>
+          </div>
+        </article>
+
+        <article class="artist-card">
+          <div class="avatar a3">JdM</div>
+          <div class="artist-info">
+            <h3>Juan del Muelle</h3>
+            <p>Historias de amor, mar y muelles al atardecer, con sabor a Canarias.</p>
+            <a href="#" class="btn ghost small">Ver perfil</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- VIDEOS -->
+    <section class="section" id="videos">
+      <div class="section-header">
+        <h2>[VÍDEOCLIPS &amp; LOOPS IA]</h2>
+      </div>
+      <div class="grid videos-grid">
+        <article class="video-thumb">
+          <div class="video-box">Teaser "Súbelo"</div>
+          <p class="meta">Loop visual IA • 0:15</p>
+        </article>
+        <article class="video-thumb">
+          <div class="video-box">GYM WAVE Trailer</div>
+          <p class="meta">Visualizador energético • 0:30</p>
+        </article>
+        <article class="video-thumb">
+          <div class="video-box">SiLiCe Intro</div>
+          <p class="meta">Glitch futurista • 0:20</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CTA FINAL / CONTACTO -->
+    <section class="final-cta" id="contacto">
+      <h2>¿Listo para sumergirte en la onda eléctrica?</h2>
+      <p>Escucha el catálogo completo, comparte playlists y colabora con dJ1fRee Records.</p>
+      <div class="hero-actions">
+        <a href="#" class="btn primary">Escuchar en Spotify</a>
+        <a href="mailto:contact@dj1free-records.com" class="btn ghost">Proponer colaboración</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
   <footer class="footer">
     <p>dJ1fRee Records • Creado en Canarias</p>
-    <p>© 2025</p>
+    <p>© 2025 • Electronic Energy Label</p>
   </footer>
 </body>
 </html>
