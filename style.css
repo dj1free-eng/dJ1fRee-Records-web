@@ -103,13 +103,26 @@ html, body {
     top: 64px;
     right: -100%;
     flex-direction: column;
-    background: #111218;
-    width: 70%;
+    
+    /* NUEVO FONDO OPACO */
+    background: rgba(10, 12, 20, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    width: 78%;
     height: calc(100% - 64px);
-    padding: 20px;
-    gap: 18px;
+    padding: 26px;
+    gap: 22px;
     transition: 0.25s ease;
+
+    border-left: 1px solid rgba(255,255,255,0.08);
+    box-shadow: -4px 0 18px rgba(0,0,0,0.45);
   }
+
+  .header.menu-open .nav {
+    right: 0;
+  }
+}
 
   .header.menu-open .nav {
     right: 0;
