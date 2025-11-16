@@ -10,6 +10,13 @@
   <!-- HEADER -->
   <header class="header">
     <div class="logo">dJ1fRee<span> Records</span></div>
+
+    <button class="menu-toggle" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
     <nav class="nav">
       <a href="#inicio">Inicio</a>
       <a href="#catalogo">Catálogo</a>
@@ -17,7 +24,9 @@
       <a href="#artistas">Artistas</a>
       <a href="#videos">Vídeos</a>
       <a href="#contacto">Contacto</a>
+      <a class="spotify-link-mobile" href="#" target="_blank" rel="noopener">Listen on Spotify</a>
     </nav>
+
     <a class="spotify-btn" href="#" target="_blank" rel="noopener">Listen on Spotify</a>
   </header>
 
@@ -73,7 +82,7 @@
             <p class="tagline">Rap reflexivo con ADN digital y conciencia artificial.</p>
             <div class="card-actions">
               <a href="#" class="btn small">Play</a>
-              <span class="pill pill-purple">Hip‑hop</span>
+              <span class="pill pill-purple">Hip-hop</span>
             </div>
           </div>
         </article>
@@ -124,7 +133,7 @@
           <div class="cover playlist-cover">Lo-Fi Coding</div>
           <div class="card-body">
             <h3>Study / Coding Wave</h3>
-            <p class="meta">Lo‑Fi • Focus • Study</p>
+            <p class="meta">Lo-Fi • Focus • Study</p>
             <p class="tagline">Instrumentales para concentrarte, crear y programar sin distracciones.</p>
             <a href="#" class="btn small">Abrir en Spotify</a>
           </div>
@@ -204,5 +213,16 @@
     <p>dJ1fRee Records • Creado en Canarias</p>
     <p>© 2025 • Electronic Energy Label</p>
   </footer>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const header = document.querySelector('.header');
+
+    if (menuToggle && header) {
+      menuToggle.addEventListener('click', () => {
+        header.classList.toggle('menu-open');
+      });
+    }
+  </script>
 </body>
 </html>

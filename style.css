@@ -55,6 +55,7 @@ a {
   opacity: 0.8;
 }
 
+/* NAV DESKTOP */
 .nav {
   display: flex;
   gap: 16px;
@@ -80,6 +81,28 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+
+/* HAMBURGER BUTTON (MOBILE) */
+.menu-toggle {
+  display: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(5, 7, 18, 0.9);
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  flex-direction: column;
+  padding: 0;
+}
+
+.menu-toggle span {
+  width: 16px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--white);
 }
 
 /* HERO */
@@ -160,7 +183,7 @@ a {
   margin-bottom: 8px;
 }
 
-/* BOTONES */
+/* BOTONES GENERALES */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -302,8 +325,7 @@ a {
 }
 
 /* PLAYLIST CARDS */
-.playlist-card {
-  position: relative;
+.playlist-card isposition: relative;
 }
 
 .playlist-card .badge {
@@ -433,8 +455,36 @@ a {
     grid-template-columns: minmax(0, 1fr);
   }
 
+  .spotify-btn {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
   .nav {
-    display: none; /* versión simple sin menú responsive aún */
+    position: absolute;
+    top: 64px;
+    right: 0;
+    left: 0;
+    padding: 12px 20px 16px;
+    background: rgba(5, 7, 18, 0.97);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    flex-direction: column;
+    gap: 10px;
+    display: none;
+  }
+
+  .header.menu-open .nav {
+    display: flex;
+  }
+
+  .spotify-link-mobile {
+    margin-top: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--electric-blue);
   }
 
   .header {
