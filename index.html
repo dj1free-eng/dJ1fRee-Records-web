@@ -4,6 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>dJ1fRee Records • Electronic Energy</title>
+  <meta name="description" content="dJ1fRee Records: sello independiente de electrónica, rap futurista y melodías urbanas made in Canarias. Escucha a dJ1fRee, SiLiCe y Juan del Muelle.">
+  <meta property="og:title" content="dJ1fRee Records • Electronic Energy">
+  <meta property="og:description" content="Beats eléctricos, rap digital y vibes de muelle. dJ1fRee, SiLiCe & Juan del Muelle en un solo sello.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dj1free-eng.github.io/dJ1fRee-Records-web/">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -217,12 +222,60 @@
   <script>
     const menuToggle = document.querySelector('.menu-toggle');
     const header = document.querySelector('.header');
+    const navLinks = document.querySelectorAll('.nav a[href^="#"]');
 
+    // Toggle menú móvil
     if (menuToggle && header) {
       menuToggle.addEventListener('click', () => {
         header.classList.toggle('menu-open');
       });
     }
+
+    // Scroll suave y cerrar menú al hacer clic en un enlace
+    navLinks.forEach(link => {
+      link.addEventListener('click', (event) => {
+        const targetId = link.getAttribute('href').substring(1);
+        const target = document.getElementById(targetId);
+
+        if (target) {
+          event.preventDefault();
+          const headerOffset = 70;
+          const rect = target.getBoundingClientRect();
+          const offsetTop = rect.top + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+          });
+
+          header.classList.remove('menu-open');
+        }
+      });
+    });
+
+    // Resaltar sección activa en el menú al hacer scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navAnchors = document.querySelectorAll('.nav a[href^="#"]');
+
+    function onScroll() {
+      const scrollPos = window.scrollY || window.pageYOffset;
+
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        const top = rect.top + window.pageYOffset - 80;
+        const bottom = top + section.offsetHeight;
+        const id = section.getAttribute('id');
+
+        if (scrollPos >= top && scrollPos < bottom) {
+          navAnchors.forEach(a => {
+            a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+          });
+        }
+      });
+    }
+
+    window.addEventListener('scroll', onScroll);
+    onScroll();
   </script>
 </body>
 </html>
