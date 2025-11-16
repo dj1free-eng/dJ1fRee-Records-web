@@ -1,0 +1,48 @@
+:root {
+  --electric-blue: #0ae2ff;
+  --neon-purple: #a020ff;
+  --deep-navy: #0b0f1a;
+  --white: #ffffff;
+}
+
+body {
+  background: var(--deep-navy);
+  color: var(--white);
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+.header {
+  background: rgba(11, 15, 26, 0.7);
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav a {
+  margin-right: 15px;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.hero {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, var(--electric-blue), var(--neon-purple));
+  text-align: center;
+}
+
+.cta {
+  background: var(--electric-blue);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  opacity: 0.7;
+}
