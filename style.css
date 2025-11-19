@@ -110,7 +110,7 @@ body {
 /* HERO */
 
 .hero {
-  padding: 3.75rem 0 3rem;
+  padding: 6rem 0 4rem; /* más altura para que la animación se vea al hacer scroll */
 }
 
 .hero-inner {
@@ -467,9 +467,10 @@ body {
   will-change: opacity, transform;
 }
 
-/* Entra desde la derecha */
+/* Entra desde la derecha, más marcado */
 [data-reveal="right"] {
-  transform: translateX(80px);
+  transform: translateX(150px);
+  transition-duration: 0.9s;
 }
 
 /* Entra con zoom */
@@ -483,16 +484,21 @@ body {
   transform: translateY(0);
 }
 
-/* Derecha */
+/* Derecha visible */
 [data-reveal="right"].is-visible {
   opacity: 1;
   transform: translateX(0);
 }
 
-/* Zoom */
+/* Zoom visible */
 [data-reveal="scale"].is-visible {
   opacity: 1;
   transform: scale(1);
+}
+
+/* Delay sólo para la tarjeta del hero (álbum destacado) */
+.hero-product .product-card[data-reveal="right"] {
+  transition-delay: 0.35s;
 }
 
 /* RESPONSIVE */
@@ -541,7 +547,7 @@ body {
 
 @media (max-width: 480px) {
   .hero {
-    padding-top: 3rem;
+    padding-top: 3.5rem;
   }
 
   .hero-actions {
