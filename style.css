@@ -565,10 +565,21 @@ body {
 @media (max-width: 860px) {
   .hero-inner {
     grid-template-columns: minmax(0, 1fr);
+    justify-items: center;              /* centra el contenido del grid */
+  }
+
+  /* Tarjeta de artista y álbum centradas y con ancho máximo */
+  .hero-artist,
+  .product-card {
+    max-width: 640px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .hero-product {
-    justify-content: stretch;
+    justify-content: center;
+    width: 100%;
   }
 
   .product-card {
@@ -608,7 +619,6 @@ body {
     flex-wrap: wrap;
   }
 }
-
 @media (max-width: 480px) {
   .hero {
     padding-top: 3.5rem;
