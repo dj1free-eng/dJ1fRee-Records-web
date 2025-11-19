@@ -147,7 +147,19 @@ body {
   box-shadow: var(--shadow-soft);
   border: 1px solid rgba(210, 210, 215, 0.7);
 }
+.hero-artist-media {
+  margin-bottom: 0.9rem;
+  display: flex;
+  justify-content: center;
+}
 
+.hero-artist-media img {
+  width: 100%;
+  max-width: 320px;   /* aquí mandas tú: si la ves grande, baja a 280; si pequeña, sube a 360 */
+  border-radius: 16px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(210, 210, 215, 0.7);
+}
 .artist-eyebrow {
   margin-top: 0.3rem;
 }
