@@ -107,26 +107,20 @@ html, body {
 ---------------------------------- */
 @media (max-width: 880px) {
   .nav {
-    position: fixed;
-    top: 64px;                     /* justo debajo de la cabecera */
-    right: -100%;                  /* FUERA de pantalla al inicio */
-    flex-direction: column;
-    background: #050712;           /* fondo opaco, sin transparencia */
-    width: 75%;
-    height: calc(100% - 64px);
-    padding: 24px;
-    gap: 22px;
-    transition: right 0.25s ease;
-    border-left: 1px solid rgba(255,255,255,0.08);
-    box-shadow: -4px 0 18px rgba(0,0,0,0.45);
-  }
-
-  .header.menu-open .nav {
-    right: 0;                      /* entra cuando hay .menu-open */
+    position: static;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    background: transparent;
+    width: 100%;
+    height: auto;
+    padding: 8px 0 0 0;
+    gap: 12px;
+    box-shadow: none;
+    border: none;
   }
 
   .menu-toggle {
-    display: flex;
+    display: none;
   }
 
   .spotify-btn {
@@ -134,13 +128,13 @@ html, body {
   }
 
   .spotify-link-mobile {
-    display: block;
-    padding: 10px;
+    display: inline-flex;
+    padding: 6px 12px;
     background: #1db954;
     color: #fff;
-    border-radius: 6px;
-    margin-top: 18px;
-    text-align: center;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    text-decoration: none;
   }
 }
 
@@ -498,3 +492,4 @@ html, body {
   color: #8c94a8;
   font-size: 0.9rem;
 }
+
