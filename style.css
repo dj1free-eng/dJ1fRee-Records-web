@@ -65,6 +65,8 @@ body {
 }
 
 .brand {
+  width: 130px;      /* Este ancho ajusta las dos líneas */
+  text-align: left;  /* Para que la alineación quede idéntica */
   text-decoration: none;
   display: flex;
   flex-direction: column;
@@ -74,14 +76,14 @@ body {
 .brand-main {
   font-size: 1.1rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.06em;
   text-transform: none;
   color: var(--text-main);
 }
 
 .brand-sub {
   font-size: 0.7rem;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.18em;   /* antes 0.22em */
   text-transform: uppercase;
   color: var(--text-muted);
 }
