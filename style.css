@@ -65,7 +65,7 @@ body {
 }
 
 .brand {
-  width: 130px;      /* Este ancho ajusta las dos líneas */
+  width: 140px;      /* Este ancho ajusta las dos líneas */
   text-align: left;  /* Para que la alineación quede idéntica */
   text-decoration: none;
   display: flex;
@@ -76,14 +76,14 @@ body {
 .brand-main {
   font-size: 1.1rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: none;
+  letter-spacing: 0.02em;   /* más compacto */
+  text-transform: none;      /* MUY importante */
   color: var(--text-main);
 }
 
 .brand-sub {
   font-size: 0.7rem;
-  letter-spacing: 0.18em;   /* antes 0.22em */
+  letter-spacing: 0.30em;   /* más ancho */
   text-transform: uppercase;
   color: var(--text-muted);
 }
