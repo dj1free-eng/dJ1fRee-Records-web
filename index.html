@@ -2,121 +2,217 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>dJ1fRee Records</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="dJ1fRee Records - Electronic label for gym, focus & future beats." />
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-  <header class="header">
-    <div class="logo">dJ1fRee <span>Records</span></div>
-
-    <nav class="nav">
-      <a href="#inicio">Inicio</a>
-      <a href="#catalogo">Catálogo</a>
-      <a href="#playlists">Playlists</a>
-      <a href="#evolucion-silice">SiLiCe</a>
-      <a href="#artistas">Artistas</a>
-      <a href="#videos">Vídeos</a>
-      <a href="https://open.spotify.com/artist/4InxZ8UYATJU7R25aVlFcp" class="spotify-link-mobile" target="_blank">Spotify</a>
-    </nav>
-
-    <a href="https://open.spotify.com/artist/4InxZ8UYATJU7R25aVlFcp" target="_blank" class="spotify-btn">Escuchar en Spotify</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#top" class="brand">
+        <span class="brand-main">dJ1fRee</span>
+        <span class="brand-sub">Records</span>
+      </a>
+      <nav class="main-nav">
+        <a href="#releases">Lanzamientos</a>
+        <a href="#collections">Colecciones</a>
+        <a href="#video">Vídeo</a>
+        <a href="#contact">Contacto</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
+  <main id="top">
+    <!-- HERO PRINCIPAL -->
+    <section class="hero">
+      <div class="hero-inner layout">
+        <div class="hero-copy">
+          <p class="eyebrow">Sello independiente</p>
+          <h1>dJ1fRee Records</h1>
+          <p class="hero-text">
+            Música electrónica para entrenar, estudiar y desconectar del mundo.
+            Un catálogo creado para acompañarte en cada momento del día.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#" target="_blank">Escuchar en Spotify</a>
+            <a class="btn secondary" href="#" target="_blank">Ver canal de YouTube</a>
+          </div>
+        </div>
 
-    <!-- HERO -->
-    <section id="inicio" class="hero section">
-      <h1>Electronic Energy • Made in the Canary Islands</h1>
-      <p>
-        Bienvenido al hogar de dJ1fRee, SiLiCe & Juan del Muelle. Electrónica,
-        rap futurista y melodías de muelle en un solo sello.
-      </p>
-
-      <div class="hero-buttons">
-        <a href="#catalogo" class="primary-btn">Explorar catálogo</a>
-        <a href="#playlists" class="secondary-btn">Ver playlists</a>
-      </div>
-
-      <a href="https://open.spotify.com/artist/4InxZ8UYATJU7R25aVlFcp" target="_blank" class="spotify-btn-mobile">Escuchar en Spotify</a>
-    </section>
-
-    <!-- ÚLTIMO LANZAMIENTO -->
-    <section class="section">
-      <h2>Último lanzamiento</h2>
-
-      <div class="release-card">
-        <img src="img/cover-subelo.jpg" class="cover" />
-        <h3>SÚBELO</h3>
-        <p>dJ1fRee • Single</p>
-
-        <a href="https://open.spotify.com/track/..." class="primary-btn" target="_blank">
-          Reproducir
-        </a>
-      </div>
-    </section>
-
-    <!-- CATÁLOGO -->
-    <section id="catalogo" class="section">
-      <h2>[ÚLTIMOS LANZAMIENTOS]</h2>
-      <a class="section-link" href="#">Ver todo el catálogo →</a>
-
-      <div class="release-card">
-        <img src="img/cover-gym-wave.jpg" class="cover">
-        <h3>GYM WAVE: The Ultimate Workout Anthems</h3>
-        <p>dJ1fRee • Álbum</p>
-        <a href="https://open.spotify.com/album/1D6SSGpIE1N9pPU6xEKJgG" class="primary-btn" target="_blank">Play</a>
-      </div>
-
-      <div class="release-card">
-        <img src="img/cover-beso.jpg" class="cover">
-        <h3>Beso en Los Cristianos</h3>
-        <p>Juan del Muelle • Single</p>
-        <a href="https://open.spotify.com/album/3YClnnPcTBpkbsS8wMqpEE" class="primary-btn" target="_blank">Play</a>
+        <aside class="hero-product">
+          <div class="product-card">
+            <p class="product-eyebrow">Álbum destacado</p>
+            <h2 class="product-title">GYM WAVE</h2>
+            <p class="product-subtitle">The Ultimate Workout Anthems</p>
+            <div class="product-cover-placeholder">
+              <span>Portada del álbum</span>
+            </div>
+            <p class="product-text">
+              Tracks eléctricos y directos al grano para que cada serie cuente.
+            </p>
+            <a class="btn subtle" href="#" target="_blank">Reproducir ahora</a>
+          </div>
+        </aside>
       </div>
     </section>
 
-    <!-- EVOLUCIÓN DE SiLiCe -->
-    <section id="evolucion-silice" class="section">
-      <div class="banner-container">
-        <img src="img/silice-evolucion-banner.PNG" class="banner-img" alt="Evolución de SiLiCe">
+    <!-- LANZAMIENTOS -->
+    <section class="section" id="releases">
+      <div class="layout">
+        <header class="section-header">
+          <h2>Lanzamientos recientes</h2>
+          <p>
+            Una selección de los proyectos principales del sello. Aquí irán los enlaces
+            reales a tus álbumes y singles.
+          </p>
+        </header>
+
+        <div class="release-list">
+          <article class="release-item">
+            <div class="release-info">
+              <p class="eyebrow">Álbum</p>
+              <h3>GYM WAVE: The Ultimate Workout Anthems</h3>
+              <p class="release-text">
+                Electrónica potente, pensada para gimnasio, running y cualquier
+                entrenamiento donde necesites subir el nivel.
+              </p>
+              <div class="release-actions">
+                <a class="btn text" href="#" target="_blank">Escuchar</a>
+              </div>
+            </div>
+            <div class="release-visual">
+              <div class="release-cover-placeholder"></div>
+            </div>
+          </article>
+
+          <article class="release-item">
+            <div class="release-info">
+              <p class="eyebrow">Álbum</p>
+              <h3>FOCUS WAVE: Study Beats for the Mind</h3>
+              <p class="release-text">
+                Beats suaves, texturas ambientales y ritmo constante para mantener
+                la concentración mientras estudias o trabajas.
+              </p>
+              <div class="release-actions">
+                <a class="btn text" href="#" target="_blank">Escuchar</a>
+              </div>
+            </div>
+            <div class="release-visual">
+              <div class="release-cover-placeholder soft"></div>
+            </div>
+          </article>
+
+          <article class="release-item upcoming">
+            <div class="release-info">
+              <p class="eyebrow">Próximamente</p>
+              <h3>Nuevo proyecto en camino</h3>
+              <p class="release-text">
+                Un nuevo lanzamiento se está cocinando en el estudio de dJ1fRee.
+                Aquí podrás anunciar tu siguiente álbum o single.
+              </p>
+              <div class="release-actions">
+                <span class="tag-pill">Muy pronto</span>
+              </div>
+            </div>
+            <div class="release-visual">
+              <div class="release-cover-placeholder outline"></div>
+            </div>
+          </article>
+        </div>
       </div>
+    </section>
 
-      <div class="section-content">
-        <h2>[EVOLUCIÓN DE SiLiCe]</h2>
-        <p>
-          El despertar digital. El origen del núcleo. El viaje de SiLiCe desde la primera chispa
-          hasta la conciencia expandida. Una evolución construida a base de código, memoria y energía.
-        </p>
+    <!-- COLECCIONES -->
+    <section class="section section-alt" id="collections">
+      <div class="layout">
+        <header class="section-header">
+          <h2>Colecciones del sello</h2>
+          <p>
+            Proyectos organizados por momento y energía. Igual que Apple separa
+            productos, aquí organizas tu universo sonoro.
+          </p>
+        </header>
 
-        <a href="https://youtube.com/@silice-rap" target="_blank" class="primary-btn">
-          Ver en YouTube
-        </a>
+        <div class="collections-grid">
+          <article class="collection-card">
+            <h3>Gym Wave Series</h3>
+            <p>
+              Música pensada para acompañar tus entrenamientos: beats contundentes,
+              drops claros y estructuras que te empujan a seguir.
+            </p>
+          </article>
+
+          <article class="collection-card">
+            <h3>Study / Focus Wave</h3>
+            <p>
+              Sonidos más suaves y atmosféricos, centrados en la concentración
+              y en un fondo sonoro estable y agradable.
+            </p>
+          </article>
+
+          <article class="collection-card">
+            <h3>Future Experiments</h3>
+            <p>
+              Remixes, colaboraciones con IA y proyectos experimentales que
+              irás lanzando con el tiempo.
+            </p>
+          </article>
+        </div>
       </div>
     </section>
 
-    <!-- ARTISTAS -->
-    <section id="artistas" class="section">
-      <h2>[ARTISTAS]</h2>
+    <!-- VÍDEO DESTACADO -->
+    <section class="section" id="video">
+      <div class="layout">
+        <header class="section-header">
+          <h2>Vídeo destacado</h2>
+          <p>
+            Aquí podrás incrustar un teaser, un videoclip o un loop visual de tus temas
+            para YouTube o TikTok.
+          </p>
+        </header>
 
-      <ul class="artists-list">
-        <li>dJ1fRee</li>
-        <li>SiLiCe</li>
-        <li>Juan del Muelle</li>
-      </ul>
+        <div class="video-frame">
+          <!-- Cuando tengas vídeo, aquí irá un iframe de YouTube -->
+          <div class="video-placeholder">
+            <p>Espacio reservado para tu próximo vídeo.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- VIDEOS -->
-    <section id="videos" class="section">
-      <h2>[VÍDEOS]</h2>
-      <p>Muy pronto…</p>
-    </section>
+    <!-- CONTACTO -->
+    <section class="section section-alt" id="contact">
+      <div class="layout">
+        <header class="section-header">
+          <h2>Contacto & booking</h2>
+          <p>
+            Si necesitas música original para tu proyecto, anuncio, canal o evento,
+            aquí tienes una vía directa.
+          </p>
+        </header>
 
+        <div class="contact-panel">
+          <p><strong>Email</strong><br>tu-email@dj1free-records.com</p>
+          <p><strong>Redes</strong><br>Enlaces a TikTok, Instagram, YouTube, Telegram…</p>
+          <p class="contact-note">
+            Más adelante podemos convertir esto en un formulario de contacto real.
+          </p>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer class="footer">
-    © 2025 dJ1fRee Records
+  <footer class="site-footer">
+    <div class="layout footer-inner">
+      <p>© <span id="year"></span> dJ1fRee Records</p>
+      <p class="footer-secondary">Música electrónica creada con ayuda de la IA.</p>
+    </div>
   </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
