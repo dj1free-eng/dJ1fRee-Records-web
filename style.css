@@ -562,7 +562,7 @@ body {
 }
 
 /* RESPONSIVE */
-@media (max-width: 860px) {
+@media (max-width: 1024px) {
   .hero-inner {
     grid-template-columns: minmax(0, 1fr);
     justify-items: center;              /* centra el contenido del grid */
