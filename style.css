@@ -155,7 +155,7 @@ body {
 
 .hero-artist-media img {
   width: 100%;
-  max-width: 320px;   /* aquí mandas tú: si la ves grande, baja a 280; si pequeña, sube a 360 */
+  max-width: 360px;   /* aquí mandas tú: si la ves grande, baja a 280; si pequeña, sube a 360 */
   border-radius: 16px;
   box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
   border: 1px solid rgba(210, 210, 215, 0.7);
@@ -562,7 +562,7 @@ body {
 }
 
 /* RESPONSIVE */
-@media (max-width: 1200px) {
+@media (max-width: 1600px) {
   .hero-inner {
   grid-template-columns: minmax(0, 1fr);
   justify-items: center;
