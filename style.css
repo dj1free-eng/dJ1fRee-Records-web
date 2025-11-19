@@ -562,11 +562,13 @@ body {
 }
 
 /* RESPONSIVE */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .hero-inner {
-    grid-template-columns: minmax(0, 1fr);
-    justify-items: center;              /* centra el contenido del grid */
-  }
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
 
   /* Tarjeta de artista y álbum centradas y con ancho máximo */
   .hero-artist,
