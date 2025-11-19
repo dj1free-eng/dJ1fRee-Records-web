@@ -109,7 +109,59 @@ body {
 }
 
 /* HERO */
+.hero-artist {
+  margin-top: 2rem;
+}
 
+.artist-eyebrow {
+  margin-top: 0.5rem;
+}
+
+.hero-artist-name {
+  font-size: 1.4rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.hero-text-secondary {
+  margin-top: 0.4rem;
+  max-width: 460px;
+}
+
+.platform-links {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1rem;
+}
+
+.platform-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid rgba(210, 210, 215, 0.9);
+  font-size: 0.9rem;
+  color: var(--text-main);
+  text-decoration: none;
+  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out,
+    border-color 0.15s ease-out;
+}
+
+.platform-links a:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  border-color: var(--accent);
+}
+
+.platform-links img {
+  height: 22px;
+  width: auto;
+  display: block;
+}
 .hero {
   padding: 6rem 0 4rem;
 }
