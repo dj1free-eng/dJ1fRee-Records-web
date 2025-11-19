@@ -27,7 +27,7 @@
     <!-- HERO PRINCIPAL -->
     <section class="hero">
       <div class="hero-inner layout">
-        <div class="hero-copy">
+        <div class="hero-copy" data-reveal="up">
           <p class="eyebrow">Sello independiente</p>
           <h1>dJ1fRee Records</h1>
           <p class="hero-text">
@@ -41,11 +41,11 @@
         </div>
 
         <aside class="hero-product">
-          <div class="product-card">
+          <div class="product-card" data-reveal="right">
             <p class="product-eyebrow">Álbum destacado</p>
             <h2 class="product-title">GYM WAVE</h2>
             <p class="product-subtitle">The Ultimate Workout Anthems</p>
-            <div class="product-cover-placeholder">
+            <div class="product-cover-placeholder" data-reveal="scale">
               <span>Portada del álbum</span>
             </div>
             <p class="product-text">
@@ -60,7 +60,7 @@
     <!-- LANZAMIENTOS -->
     <section class="section" id="releases">
       <div class="layout">
-        <header class="section-header">
+        <header class="section-header" data-reveal="up">
           <h2>Lanzamientos recientes</h2>
           <p>
             Una selección de los proyectos principales del sello. Aquí irán los enlaces
@@ -69,7 +69,7 @@
         </header>
 
         <div class="release-list">
-          <article class="release-item">
+          <article class="release-item" data-reveal="up">
             <div class="release-info">
               <p class="eyebrow">Álbum</p>
               <h3>GYM WAVE: The Ultimate Workout Anthems</h3>
@@ -86,7 +86,7 @@
             </div>
           </article>
 
-          <article class="release-item">
+          <article class="release-item" data-reveal="up">
             <div class="release-info">
               <p class="eyebrow">Álbum</p>
               <h3>FOCUS WAVE: Study Beats for the Mind</h3>
@@ -103,7 +103,7 @@
             </div>
           </article>
 
-          <article class="release-item upcoming">
+          <article class="release-item upcoming" data-reveal="up">
             <div class="release-info">
               <p class="eyebrow">Próximamente</p>
               <h3>Nuevo proyecto en camino</h3>
@@ -126,7 +126,7 @@
     <!-- COLECCIONES -->
     <section class="section section-alt" id="collections">
       <div class="layout">
-        <header class="section-header">
+        <header class="section-header" data-reveal="up">
           <h2>Colecciones del sello</h2>
           <p>
             Proyectos organizados por momento y energía. Igual que Apple separa
@@ -135,7 +135,7 @@
         </header>
 
         <div class="collections-grid">
-          <article class="collection-card">
+          <article class="collection-card" data-reveal="up">
             <h3>Gym Wave Series</h3>
             <p>
               Música pensada para acompañar tus entrenamientos: beats contundentes,
@@ -143,7 +143,7 @@
             </p>
           </article>
 
-          <article class="collection-card">
+          <article class="collection-card" data-reveal="up">
             <h3>Study / Focus Wave</h3>
             <p>
               Sonidos más suaves y atmosféricos, centrados en la concentración
@@ -151,7 +151,7 @@
             </p>
           </article>
 
-          <article class="collection-card">
+          <article class="collection-card" data-reveal="up">
             <h3>Future Experiments</h3>
             <p>
               Remixes, colaboraciones con IA y proyectos experimentales que
@@ -165,7 +165,7 @@
     <!-- VÍDEO DESTACADO -->
     <section class="section" id="video">
       <div class="layout">
-        <header class="section-header">
+        <header class="section-header" data-reveal="up">
           <h2>Vídeo destacado</h2>
           <p>
             Aquí podrás incrustar un teaser, un videoclip o un loop visual de tus temas
@@ -173,7 +173,7 @@
           </p>
         </header>
 
-        <div class="video-frame">
+        <div class="video-frame" data-reveal="up">
           <!-- Cuando tengas vídeo, aquí irá un iframe de YouTube -->
           <div class="video-placeholder">
             <p>Espacio reservado para tu próximo vídeo.</p>
@@ -185,7 +185,7 @@
     <!-- CONTACTO -->
     <section class="section section-alt" id="contact">
       <div class="layout">
-        <header class="section-header">
+        <header class="section-header" data-reveal="up">
           <h2>Contacto & booking</h2>
           <p>
             Si necesitas música original para tu proyecto, anuncio, canal o evento,
@@ -193,7 +193,7 @@
           </p>
         </header>
 
-        <div class="contact-panel">
+        <div class="contact-panel" data-reveal="up">
           <p><strong>Email</strong><br>tu-email@dj1free-records.com</p>
           <p><strong>Redes</strong><br>Enlaces a TikTok, Instagram, YouTube, Telegram…</p>
           <p class="contact-note">
@@ -212,7 +212,27 @@
   </footer>
 
   <script>
+    // Año automático
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Animaciones de aparición al hacer scroll
+    const revealElements = document.querySelectorAll('[data-reveal]');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          // Solo animar la primera vez
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    revealElements.forEach((el) => {
+      revealObserver.observe(el);
+    });
   </script>
 </body>
 </html>
