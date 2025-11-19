@@ -167,7 +167,7 @@ body {
 .hero-artist-name {
   font-size: 1.45rem;
   letter-spacing: 0.08em;
-  text-transform: uppercase;
+  text-transform: none;
   margin-bottom: 0.4rem;
 }
 
