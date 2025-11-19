@@ -460,33 +460,39 @@ body {
 
 [data-reveal] {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(32px);
   transition:
-    opacity var(--transition-med),
-    transform var(--transition-med);
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
   will-change: opacity, transform;
 }
 
-/* Dirección según atributo */
-
+/* Entra desde la derecha */
 [data-reveal="right"] {
-  transform: translateX(40px);
+  transform: translateX(80px);
 }
 
+/* Entra con zoom */
 [data-reveal="scale"] {
-  transform: scale(0.96);
+  transform: scale(0.9);
 }
 
-/* Estado visible */
-
-.is-visible {
+/* Estado visible general */
+[data-reveal].is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-.is-visible[data-reveal="right"],
-.is-visible[data-reveal="scale"] {
-  transform: none;
+/* Derecha */
+[data-reveal="right"].is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Zoom */
+[data-reveal="scale"].is-visible {
+  opacity: 1;
+  transform: scale(1);
 }
 
 /* RESPONSIVE */
