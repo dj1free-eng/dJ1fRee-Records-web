@@ -277,10 +277,6 @@ html, body {
   background-image: url("img/cover-gym-wave.jpg");
 }
 
-.cover-humanidad {
-  background-image: url("img/cover-humanidad-codificada.jpg");
-}
-
 .cover-beso {
   background-image: url("img/cover-beso-en-los-cristianos.jpg");
 }
@@ -525,4 +521,5 @@ html, body {
   background: #0affc6;
   transform: translateY(-2px);
 }
+
 
