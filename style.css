@@ -454,7 +454,9 @@ body {
 .btn.text:hover {
   text-decoration: underline;
 }
-
+.contact-social .btn {
+  padding: 0.35rem 0.9rem;
+}
 /* ICONOS */
 .btn-icon {
   width: 18px;
