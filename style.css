@@ -812,4 +812,27 @@ body {
     max-width: 85%;
   }
 }
+/* ==== Ajuste de brillo y contraste para tarjetas de colecciones ==== */
+
+/* Las tarjetas laterales quedan más apagadas */
+.collection-card {
+  opacity: 0.35;
+  filter: saturate(0.9) brightness(0.95);
+}
+
+/* La tarjeta activa (centrada) se ve viva y nítida */
+.collection-card.is-active {
+  opacity: 1;
+  filter: saturate(1.25) brightness(1.06) contrast(1.05);
+}
+
+/* El degradado de la activa es menos oscuro para que se vea más la portada */
+.collection-card.is-active::before {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.25) 45%,
+    rgba(0, 0, 0, 0.00) 100%
+  );
+}
 /* ==== FIN style.css ==== */
