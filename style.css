@@ -417,6 +417,15 @@ body {
   height: 22px !important;
   width: auto !important;
 }
+.email-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.email-link:hover {
+  text-decoration: underline;
+}
 /* BOTONES */
 .btn {
   display: inline-flex;
