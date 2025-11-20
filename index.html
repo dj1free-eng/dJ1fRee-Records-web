@@ -293,8 +293,10 @@
   </footer>
 
   <script>
+    // Año del footer
     document.getElementById('year').textContent = new Date().getFullYear();
 
+    // Animaciones de aparición al hacer scroll
     const revealElements = document.querySelectorAll('[data-reveal]');
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -306,6 +308,53 @@
     }, { threshold: 0.2 });
 
     revealElements.forEach((el) => revealObserver.observe(el));
+
+    /* ===== Carrusel de colecciones: tarjeta central nítida ===== */
+    const carousels = document.querySelectorAll('[data-carousel]');
+
+    carousels.forEach((carousel) => {
+      const cards = Array.from(carousel.querySelectorAll('.collection-card'));
+
+      const updateActiveCard = () => {
+        const center = carousel.scrollLeft + carousel.offsetWidth / 2;
+
+        let bestCard = null;
+        let bestDistance = Infinity;
+
+        cards.forEach((card) => {
+          const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+          const distance = Math.abs(cardCenter - center);
+          if (distance < bestDistance) {
+            bestDistance = distance;
+            bestCard = card;
+          }
+        });
+
+        cards.forEach((card) => card.classList.remove('is-active'));
+        if (bestCard) bestCard.classList.add('is-active');
+      };
+
+      // Actualizar al cargar
+      updateActiveCard();
+
+      // Actualizar al hacer scroll (suave con requestAnimationFrame)
+      let ticking = false;
+      carousel.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            updateActiveCard();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+
+      // Por si cambia el tamaño de la ventana
+      window.addEventListener('resize', updateActiveCard);
+    });
+  </script>
+</body>
+</html>
   </script>
 
 </body>
