@@ -704,4 +704,112 @@ body {
   flex-wrap: wrap;
   gap: 0.6rem;
 }
+/* ==== OVERRIDE FINAL COLECCIONES TIPO APPLE TV ==== */
+
+.collections-carousel {
+  display: flex;
+  gap: 0.9rem;
+  overflow-x: auto;
+  padding: 0.6rem 0 1.2rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Ocultar barra de scroll */
+.collections-carousel::-webkit-scrollbar {
+  display: none;
+}
+.collections-carousel {
+  scrollbar-width: none;
+}
+
+.collection-card {
+  position: relative;
+  flex: 0 0 75%;
+  max-width: 75%;
+  aspect-ratio: 2 / 3;              /* formato póster */
+  scroll-snap-align: center;
+  border-radius: 24px;
+  overflow: hidden;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  color: #ffffff;
+  opacity: 0.45;
+  transform: scale(0.94);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  transition:
+    opacity 0.35s ease-out,
+    transform 0.35s ease-out,
+    box-shadow 0.35s ease-out,
+    border-color 0.35s ease-out;
+}
+
+/* Degradado oscuro por encima para leer el texto */
+.collection-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.45) 45%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+  pointer-events: none;
+}
+
+/* Tarjeta activa (centrada) */
+.collection-card.is-active {
+  opacity: 1;
+  transform: scale(1.02);
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.32);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+/* Contenido textual abajo */
+.collection-card-content {
+  position: absolute;
+  left: 1.3rem;
+  right: 1.3rem;
+  bottom: 1.3rem;
+  z-index: 1;
+}
+
+.collection-card-content h3 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.collection-card-content p {
+  font-size: 0.86rem;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+/* Imágenes de fondo de cada colección */
+.collection-gym {
+  background-image: url("img/collection-gym-wave.jpg") !important;
+}
+
+.collection-focus {
+  background-image: url("img/collection-focus-wave.jpg") !important;
+}
+
+.collection-club {
+  background-image: url("img/collection-club-wave.jpg") !important;
+}
+
+.collection-patrick {
+  background-image: url("img/collection-patrick-theme.jpg") !important;
+}
+
+/* En móviles ocupan un poco más de ancho */
+@media (max-width: 600px) {
+  .collection-card {
+    flex: 0 0 85%;
+    max-width: 85%;
+  }
+}
 /* ==== FIN style.css ==== */
