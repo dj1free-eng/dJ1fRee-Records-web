@@ -412,7 +412,12 @@ body {
   gap: 0.9rem;
   font-size: 0.95rem;
 }
-
+.contact-social img,
+.platform-links img {
+  height: 22px;
+  width: auto;
+  display: block;
+}
 /* BOTONES */
 .btn {
   display: inline-flex;
