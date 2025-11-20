@@ -353,30 +353,17 @@ body {
 }
 
 
-/* COLECCIONES */
-/* CARRUSEL SCROLL HORIZONTAL */
+/* COLECCIONES – carrusel horizontal estilo Apple TV */
 .collections-carousel {
   display: flex;
-  gap: 1rem; /* antes eran 1.2rem, reducción */
-  overflow-x: scroll;
+  gap: 0.9rem;
+  overflow-x: auto;
+  padding: 0.6rem 0 1.2rem;
   scroll-snap-type: x mandatory;
-  padding: 1rem 0;
   -webkit-overflow-scrolling: touch;
 }
 
-.collection-card {
-  flex: 0 0 78%;  /* ancho ideal estilo Apple */
-  scroll-snap-align: center;
-  opacity: 0.4;
-  transition: opacity .3s ease, transform .3s ease;
-}
-
-.collection-card.is-active {
-  opacity: 1;
-  transform: scale(1.02);
-}
-
-/* Ocultar barra de scroll en navegadores modernos */
+/* Ocultar barra de scroll */
 .collections-carousel::-webkit-scrollbar {
   display: none;
 }
@@ -385,46 +372,92 @@ body {
 }
 
 .collection-card {
-  flex: 0 0 80%;
-  max-width: 80%;
+  position: relative;
+  flex: 0 0 75%;
+  max-width: 75%;
+  aspect-ratio: 2 / 3;              /* formato póster Apple */
   scroll-snap-align: center;
-  border-radius: var(--radius-md);
-  border: 1px solid rgba(210, 210, 215, 0.9);
-  padding: 1.3rem 1.3rem 1.4rem;
-  background: #fafafa;
-  opacity: 0.4;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #ffffff;
+  opacity: 0.45;
   transform: scale(0.94);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(0, 0, 0, 0.12);
   transition:
-    opacity 0.4s ease-out,
-    transform 0.4s ease-out,
-    box-shadow 0.4s ease-out,
-    border-color 0.4s ease-out;
+    opacity 0.35s ease-out,
+    transform 0.35s ease-out,
+    box-shadow 0.35s ease-out,
+    border-color 0.35s ease-out;
 }
 
-/* Card activa (centro) */
+/* Degradado oscuro por encima para que se lea el texto */
+.collection-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.45) 45%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+  pointer-events: none;
+}
+
+/* Estado de tarjeta activa (la del centro) */
 .collection-card.is-active {
   opacity: 1;
-  transform: scale(1);
-  box-shadow: var(--shadow-soft);
-  border-color: rgba(210, 210, 215, 0.4);
+  transform: scale(1.02);
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.32);
+  border-color: rgba(255, 255, 255, 0.18);
 }
 
-.collection-card h3 {
+/* Contenido (texto) pegado abajo */
+.collection-card-content {
+  position: absolute;
+  left: 1.3rem;
+  right: 1.3rem;
+  bottom: 1.3rem;
+  z-index: 1;
+}
+
+.collection-card-content h3 {
   font-size: 1rem;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.25rem;
 }
 
-.collection-card p {
-  font-size: 0.9rem;
-  color: var(--text-muted);
+.collection-card-content p {
+  font-size: 0.86rem;
   line-height: 1.5;
+  opacity: 0.9;
 }
 
-/* En pantallas muy pequeñas, que ocupe casi todo el ancho */
+/* Fondos de cada colección */
+.collection-gym {
+  background-image: url("img/collection-gym-wave.jpg");
+}
+
+.collection-focus {
+  background-image: url("img/collection-focus-wave.jpg");
+}
+
+.collection-club {
+  background-image: url("img/collection-club-wave.jpg");
+}
+
+.collection-patrick {
+  background-image: url("img/collection-patrick-theme.jpg");
+}
+
+/* En móviles que ocupen un poco más de ancho */
 @media (max-width: 600px) {
   .collection-card {
-    flex: 0 0 90%;
-    max-width: 90%;
+    flex: 0 0 85%;
+    max-width: 85%;
   }
 }
 /* VIDEO */
