@@ -354,14 +354,26 @@ body {
 
 
 /* COLECCIONES */
-/* COLECCIONES – carrusel horizontal estilo Apple */
+/* CARRUSEL SCROLL HORIZONTAL */
 .collections-carousel {
   display: flex;
-  gap: 1.2rem;
-  overflow-x: auto;
-  padding: 0.4rem 0 0.6rem;
+  gap: 1rem; /* antes eran 1.2rem, reducción */
+  overflow-x: scroll;
   scroll-snap-type: x mandatory;
+  padding: 1rem 0;
   -webkit-overflow-scrolling: touch;
+}
+
+.collection-card {
+  flex: 0 0 78%;  /* ancho ideal estilo Apple */
+  scroll-snap-align: center;
+  opacity: 0.4;
+  transition: opacity .3s ease, transform .3s ease;
+}
+
+.collection-card.is-active {
+  opacity: 1;
+  transform: scale(1.02);
 }
 
 /* Ocultar barra de scroll en navegadores modernos */
