@@ -292,38 +292,53 @@
     </div>
   </footer>
 
-  <script>
-    // Año del footer
-    document.getElementById('year').textContent = new Date().getFullYear();
+   <script>
+    // ===== Año automático en el footer =====
+    const yearEl = document.getElementById('year');
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
 
-    // Animaciones de aparición al hacer scroll
+    // ===== Animaciones de aparición al hacer scroll (data-reveal) =====
     const revealElements = document.querySelectorAll('[data-reveal]');
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
+    if (revealElements.length > 0) {
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
 
-    revealElements.forEach((el) => revealObserver.observe(el));
+      revealElements.forEach((el) => revealObserver.observe(el));
+    }
 
-    /* ===== Carrusel de colecciones: tarjeta central nítida ===== */
+    // ===== Carrusel de colecciones: tarjeta central nítida =====
     const carousels = document.querySelectorAll('[data-carousel]');
 
     carousels.forEach((carousel) => {
-      const cards = Array.from(carousel.querySelectorAll('.collection-card'));
+      const cards = Array.from(
+        carousel.querySelectorAll('.collection-card')
+      );
+
+      if (cards.length === 0) return;
 
       const updateActiveCard = () => {
-        const center = carousel.scrollLeft + carousel.offsetWidth / 2;
+        // Centro de la ventana
+        const centerX = window.innerWidth / 2;
 
         let bestCard = null;
         let bestDistance = Infinity;
 
         cards.forEach((card) => {
-          const cardCenter = card.offsetLeft + card.offsetWidth / 2;
-          const distance = Math.abs(cardCenter - center);
+          const rect = card.getBoundingClientRect();
+          const cardCenterX = rect.left + rect.width / 2;
+          const distance = Math.abs(cardCenterX - centerX);
+
           if (distance < bestDistance) {
             bestDistance = distance;
             bestCard = card;
@@ -331,13 +346,15 @@
         });
 
         cards.forEach((card) => card.classList.remove('is-active'));
-        if (bestCard) bestCard.classList.add('is-active');
+        if (bestCard) {
+          bestCard.classList.add('is-active');
+        }
       };
 
       // Actualizar al cargar
       updateActiveCard();
 
-      // Actualizar al hacer scroll (suave con requestAnimationFrame)
+      // Actualizar al hacer scroll en el carrusel
       let ticking = false;
       carousel.addEventListener('scroll', () => {
         if (!ticking) {
@@ -349,13 +366,9 @@
         }
       });
 
-      // Por si cambia el tamaño de la ventana
+      // Recalcular si cambia el tamaño de la ventana
       window.addEventListener('resize', updateActiveCard);
     });
   </script>
-</body>
-</html>
-  </script>
-
 </body>
 </html>
