@@ -853,4 +853,106 @@ body {
   width: 100%;
   border-radius: 16px;
 }
+/* ===== PÁGINA LEGAL ===== */
+
+.legal-main {
+  padding-top: 4.5rem;
+}
+
+.legal-hero {
+  background: var(--bg-alt);
+  border-bottom: 1px solid rgba(210, 210, 215, 0.7);
+  padding: 3rem 0 2.5rem;
+}
+
+.legal-hero-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+}
+
+.legal-hero h1 {
+  font-size: clamp(2rem, 3vw, 2.4rem);
+  letter-spacing: -0.02em;
+}
+
+.legal-hero-text {
+  margin-top: 0.7rem;
+  max-width: 520px;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.legal-hero-tag {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: flex-end;
+}
+
+.legal-pill {
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(210, 210, 215, 0.9);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  background: #f9f9fb;
+}
+
+/* Grid de tarjetas legales */
+
+.legal-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.4fr);
+  gap: 1.8rem;
+}
+
+.legal-card {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(210, 210, 215, 0.9);
+  padding: 1.5rem 1.4rem 1.6rem;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.03);
+  font-size: 0.94rem;
+  line-height: 1.7;
+}
+
+.legal-card h2 {
+  font-size: 1.05rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.9rem;
+}
+
+.legal-card h3 {
+  font-size: 0.92rem;
+  margin-top: 0.9rem;
+  margin-bottom: 0.25rem;
+  color: var(--text-main);
+}
+
+.legal-card p + p {
+  margin-top: 0.35rem;
+}
+
+/* Responsive */
+
+@media (max-width: 860px) {
+  .legal-hero-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .legal-hero-tag {
+    justify-content: flex-start;
+  }
+
+  .legal-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
 /* ==== FIN style.css ==== */
