@@ -30,11 +30,12 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;   /* aquí bloqueamos el scroll horizontal */
 }
 
-html,
+/* El body se queda limpio para que el sticky funcione bien */
 body {
-  overflow-x: hidden;
+  overflow-x: visible;
 }
 
 body {
