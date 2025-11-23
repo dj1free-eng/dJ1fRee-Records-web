@@ -1006,7 +1006,7 @@ body {
 .artist-card h3 {
   font-size: 1.05rem;
   letter-spacing: 0.08em;
-  text-transform: uppercase;
+  text-transform: none;
   margin-bottom: 0.25rem;
 }
 
