@@ -961,4 +961,92 @@ body {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+/* ===== CARRUSEL DE ARTISTAS ===== */
+
+.artists-carousel {
+  margin-top: 1.8rem;
+  position: relative;
+  display: flex;
+  gap: 1.2rem;
+  padding: 1.2rem 8vw 1.8rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.artists-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.artist-card {
+  /* sobreescribimos el estilo base de collection-card */
+  position: relative;
+  scroll-snap-align: center;
+  min-width: clamp(260px, 70vw, 340px);
+  border-radius: var(--radius-lg);
+  border: none;
+  padding: 1.3rem 1.4rem 1.5rem;
+  background: radial-gradient(circle at 0 0, #111827, #020617);
+  color: #f9fafb;
+  box-shadow: 0 24px 50px rgba(15, 23, 42, 0.6);
+  opacity: 0.55;
+  transform: scale(0.92);
+  transition:
+    transform 0.35s ease-out,
+    opacity 0.35s ease-out,
+    box-shadow 0.35s ease-out;
+}
+
+.artist-card.is-active {
+  opacity: 1;
+  transform: scale(1);
+  box-shadow: 0 28px 70px rgba(15, 23, 42, 0.9);
+}
+
+.artist-card h3 {
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.artist-tag {
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(226, 232, 240, 0.9);
+  margin-bottom: 0.7rem;
+}
+
+.artist-text {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(226, 232, 240, 0.92);
+  margin-bottom: 0.9rem;
+}
+
+.artist-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.artist-btn {
+  background: hsla(217, 91%, 60%, 0.16);
+  border: 1px solid hsla(217, 91%, 70%, 0.8);
+  color: #e5f0ff;
+  padding-inline: 1rem;
+  font-size: 0.85rem;
+}
+
+.artist-btn:hover {
+  background: hsla(217, 91%, 60%, 0.3);
+}
+
+/* Ajustes responsive */
+@media (max-width: 768px) {
+  .artists-carousel {
+    padding-inline: 1.25rem;
+  }
+}
 /* ==== FIN style.css ==== */
