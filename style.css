@@ -1050,4 +1050,27 @@ body {
     padding-inline: 1.25rem;
   }
 }
+/* ===== Carrusel: puntos de navegación ===== */
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.45rem;
+  margin-top: 1rem;
+  user-select: none;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.25);
+  transition: transform 0.25s ease, background 0.25s ease;
+  cursor: pointer;
+}
+
+.carousel-dot.active {
+  background: rgba(0,0,0,0.8);
+  transform: scale(1.45);
+}
 /* ==== FIN style.css ==== */
