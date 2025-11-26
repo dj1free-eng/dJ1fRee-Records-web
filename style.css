@@ -1073,4 +1073,11 @@ body {
   background: rgba(0,0,0,0.8);
   transform: scale(1.45);
 }
+/* Eliminar fondo gris del carrusel */
+.collections-carousel,
+.artists-carousel,
+[data-carousel] {
+  background: transparent !important;
+  box-shadow: none !important;
+}
 /* ==== FIN style.css ==== */
