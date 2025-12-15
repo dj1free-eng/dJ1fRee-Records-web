@@ -1080,4 +1080,10 @@ body {
   background: transparent !important;
   box-shadow: none !important;
 }
+
+.section .layout > div[data-carousel] {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
 /* ==== FIN style.css ==== */
