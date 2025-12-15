@@ -1088,4 +1088,97 @@ body {
   box-shadow: none !important;
 }
 
+/* =========================
+   CARRUSEL PRO (Apple-like)
+   ========================= */
+
+/* 1) El carrusel NO tiene fondo */
+[data-carousel]{
+  position: relative;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 auto !important;
+
+  display: flex;
+  gap: 18px;                 /* antes estaban muy separadas */
+  overflow-x: auto;
+  overflow-y: visible;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  /* centrado “real” de tarjetas en horizontal */
+  justify-content: flex-start;
+  padding-inline: 18px;      /* para que el centro se respete */
+}
+
+/* Ocultar barra de scroll */
+[data-carousel]::-webkit-scrollbar { display: none; }
+[data-carousel] { scrollbar-width: none; }
+
+/* 2) Fade lateral (como Apple) sin fondo gris */
+[data-carousel]::before,
+[data-carousel]::after{
+  content:"";
+  position:absolute;
+  top:0;
+  bottom:0;
+  width: 56px;
+  pointer-events:none;
+  z-index: 2;
+}
+
+[data-carousel]::before{
+  left:0;
+  background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0));
+}
+
+[data-carousel]::after{
+  right:0;
+  background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0));
+}
+
+/* 3) Tarjetas: flotan y hacen snap al centro */
+.collection-card,
+.artist-card{
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  transform: translateZ(0);
+
+  /* sensación “flotante” */
+  box-shadow: 0 12px 34px rgba(15, 23, 42, 0.10);
+}
+
+/* 4) Estado inactivo: más suave (como tú querías) */
+.collection-card:not(.is-active),
+.artist-card:not(.is-active){
+  opacity: 0.40;
+  filter: saturate(0.9) contrast(0.95);
+  transform: scale(0.985);
+}
+
+/* 5) Activa: viva y con punch */
+.collection-card.is-active,
+.artist-card.is-active{
+  opacity: 1;
+  filter: saturate(1.12) contrast(1.06);
+  transform: scale(1);
+}
+
+/* 6) “Bounce” visual al llegar a los bordes */
+[data-carousel].at-start { animation: carouselBounceLeft 240ms ease-out; }
+[data-carousel].at-end   { animation: carouselBounceRight 240ms ease-out; }
+
+@keyframes carouselBounceLeft{
+  0%{ transform: translateX(0); }
+  55%{ transform: translateX(8px); }
+  100%{ transform: translateX(0); }
+}
+@keyframes carouselBounceRight{
+  0%{ transform: translateX(0); }
+  55%{ transform: translateX(-8px); }
+  100%{ transform: translateX(0); }
+}
+
 /* ==== FIN style.css ==== */
