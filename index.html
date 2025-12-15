@@ -397,87 +397,90 @@
   </div>
 </footer>
 
-   <script>
-    // ===== Año automático en el footer =====
-    const yearEl = document.getElementById('year');
-    if (yearEl) {
-      yearEl.textContent = new Date().getFullYear();
-    }
+<script>
+  // ===== Año automático en el footer =====
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    // ===== Animaciones de aparición al hacer scroll (data-reveal) =====
-    const revealElements = document.querySelectorAll('[data-reveal]');
-    if (revealElements.length > 0) {
-      const revealObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('is-visible');
-              revealObserver.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.2 }
-      );
+  // ===== Animaciones de aparición al hacer scroll (data-reveal) =====
+  const revealElements = document.querySelectorAll('[data-reveal]');
+  if (revealElements.length > 0) {
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    revealElements.forEach((el) => revealObserver.observe(el));
+  }
 
-      revealElements.forEach((el) => revealObserver.observe(el));
-    }
-  /* ===== CARRUSELES CON PUNTOS ===== */
-
+  /* ===== CARRUSELES CON PUNTOS (robusto) ===== */
   const carousels = document.querySelectorAll('[data-carousel]');
 
   carousels.forEach((carousel) => {
-    const cards = Array.from(carousel.querySelectorAll('.collection-card, .artist-card'));
+    const cards = Array.from(carousel.querySelectorAll('.collection-card'));
+    if (!cards.length) return;
 
-    /* Crear contenedor de puntos */
-    const dotsWrapper = document.createElement('div');
-    dotsWrapper.className = 'carousel-dots';
-    carousel.after(dotsWrapper);
+    // 1) Crear dots SI NO EXISTEN ya (evita duplicados)
+    let dotsWrapper = carousel.nextElementSibling;
+    const alreadyDots = dotsWrapper && dotsWrapper.classList && dotsWrapper.classList.contains('carousel-dots');
 
-    /* Crear puntos según nº de tarjetas */
-    cards.forEach((_, i) => {
-      const dot = document.createElement('div');
-      dot.className = 'carousel-dot';
-      if (i === 0) dot.classList.add('active');
-      dotsWrapper.appendChild(dot);
+    if (!alreadyDots) {
+      dotsWrapper = document.createElement('div');
+      dotsWrapper.className = 'carousel-dots';
+      carousel.after(dotsWrapper);
 
-      /* Click en un punto → mover al card */
-      dot.addEventListener('click', () => {
-        cards[i].scrollIntoView({
-          behavior: 'smooth',
-          block: 'nearest',
-          inline: 'center'
+      cards.forEach((_, i) => {
+        const dot = document.createElement('div');
+        dot.className = 'carousel-dot';
+        if (i === 0) dot.classList.add('active');
+        dotsWrapper.appendChild(dot);
+
+        // Click → centra tarjeta
+        dot.addEventListener('click', () => {
+          cards[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
         });
       });
-    });
+    }
 
-    const dots = dotsWrapper.querySelectorAll('.carousel-dot');
+    const dots = Array.from(dotsWrapper.querySelectorAll('.carousel-dot'));
 
-    /* Actualizar tarjeta activa */
-    function updateActiveCard() {
+    // 2) Marca activa la tarjeta más centrada
+    const setActiveIndex = (idx) => {
+      cards.forEach((c) => c.classList.remove('is-active'));
+      if (cards[idx]) cards[idx].classList.add('is-active');
+
+      dots.forEach((d) => d.classList.remove('active'));
+      if (dots[idx]) dots[idx].classList.add('active');
+    };
+
+    const updateActiveCard = () => {
       const center = carousel.scrollLeft + carousel.offsetWidth / 2;
 
-      let bestCard = null;
+      let bestIndex = 0;
       let bestDistance = Infinity;
 
-      cards.forEach((card) => {
+      cards.forEach((card, i) => {
         const cardCenter = card.offsetLeft + card.offsetWidth / 2;
         const distance = Math.abs(cardCenter - center);
         if (distance < bestDistance) {
           bestDistance = distance;
-          bestCard = card;
+          bestIndex = i;
         }
       });
 
-      cards.forEach((card, idx) => {
-        card.classList.toggle('is-active', card === bestCard);
-        dots[idx].classList.toggle('active', card === bestCard);
-      });
-    }
+      setActiveIndex(bestIndex);
+    };
 
-    /* Inicializar */
+    // Init
     updateActiveCard();
 
-    /* Scroll → actualizar */
+    // Scroll suave con rAF
     let ticking = false;
     carousel.addEventListener('scroll', () => {
       if (!ticking) {
