@@ -1079,6 +1079,8 @@ body {
 [data-carousel] {
   background: transparent !important;
   box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 auto !important;
 }
 
 .section .layout > div[data-carousel] {
