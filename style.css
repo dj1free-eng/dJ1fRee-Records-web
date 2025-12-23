@@ -1274,5 +1274,52 @@ body {
   background: rgba(15,23,42,0.85);
   transform: scale(1.25);
 }
+/* ===== Panel de detalles (Colecciones) ===== */
+.collection-details{
+  margin-top: 1.2rem;
+  padding: 1rem 1rem 1.1rem;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.75);
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  backdrop-filter: blur(10px);
+}
 
+.collection-details-title{
+  margin: 0 0 .35rem;
+  font-size: 1.05rem;
+}
+
+.collection-details-desc{
+  margin: 0 0 .9rem;
+  color: rgba(0,0,0,0.70);
+  line-height: 1.45;
+}
+
+.collection-details-links{
+  gap: .6rem;
+  flex-wrap: wrap;
+}
+
+.collection-details-links .detail-link{
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  padding: .6rem .8rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.10);
+  background: rgba(255,255,255,0.85);
+  text-decoration: none;
+  color: inherit;
+}
+
+.collection-details-links .detail-link img{
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.collection-details-links .detail-link:hover{
+  transform: translateY(-1px);
+}
 /* ==== FIN style.css ==== */
