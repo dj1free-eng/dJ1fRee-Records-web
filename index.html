@@ -456,68 +456,97 @@
     revealElements.forEach((el) => revealObserver.observe(el));
   }
 
-  /* ===== CARRUSELES CON PUNTOS (robusto) ===== */
+  /* ===== CARRUSELES CON PUNTOS + tarjeta activa ===== */
   const carousels = document.querySelectorAll('[data-carousel]');
 
   carousels.forEach((carousel) => {
-    const cards = Array.from(carousel.querySelectorAll('.collection-card'));
-    if (!cards.length) return;
+    const cards = Array.from(carousel.querySelectorAll('.collection-card, .artist-card'));
 
-    // 1) Crear dots SI NO EXISTEN ya (evita duplicados)
-    let dotsWrapper = carousel.nextElementSibling;
-    const alreadyDots = dotsWrapper && dotsWrapper.classList && dotsWrapper.classList.contains('carousel-dots');
+    // Crear contenedor de puntos
+    const dotsWrapper = document.createElement('div');
+    dotsWrapper.className = 'carousel-dots';
+    carousel.after(dotsWrapper);
 
-    if (!alreadyDots) {
-      dotsWrapper = document.createElement('div');
-      dotsWrapper.className = 'carousel-dots';
-      carousel.after(dotsWrapper);
+    // Crear puntos
+    cards.forEach((_, i) => {
+      const dot = document.createElement('div');
+      dot.className = 'carousel-dot';
+      if (i === 0) dot.classList.add('active');
+      dotsWrapper.appendChild(dot);
 
-      cards.forEach((_, i) => {
-        const dot = document.createElement('div');
-        dot.className = 'carousel-dot';
-        if (i === 0) dot.classList.add('active');
-        dotsWrapper.appendChild(dot);
-
-        // Click → centra tarjeta
-        dot.addEventListener('click', () => {
-          cards[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      dot.addEventListener('click', () => {
+        cards[i].scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+          inline: 'center'
         });
       });
+    });
+
+    const dots = dotsWrapper.querySelectorAll('.carousel-dot');
+
+    // Panel de detalles (solo para el carrusel de colecciones)
+    const detailsPanel = document.getElementById('collection-details');
+    const detailsTitle = detailsPanel ? detailsPanel.querySelector('.collection-details-title') : null;
+    const detailsDesc  = detailsPanel ? detailsPanel.querySelector('.collection-details-desc') : null;
+    const detailsLinks = detailsPanel ? detailsPanel.querySelectorAll('[data-link]') : null;
+
+    function updateDetailsFromCard(card) {
+      // Solo actualizamos si existe panel y si ESTE carrusel es el de colecciones
+      if (!detailsPanel) return;
+      if (!carousel.classList.contains('collections-carousel')) return;
+
+      const title = card.getAttribute('data-title') || card.querySelector('h3')?.textContent || '';
+      const desc  = card.getAttribute('data-desc')  || '';
+
+      if (detailsTitle) detailsTitle.textContent = title;
+      if (detailsDesc)  detailsDesc.textContent = desc;
+
+      if (detailsLinks) {
+        detailsLinks.forEach((a) => {
+          const type = a.getAttribute('data-link');
+          const url = card.getAttribute(`data-${type}`) || '#';
+
+          a.href = url;
+
+          // Si no hay enlace real, lo ocultamos para que no quede “botón muerto”
+          if (!url || url === '#') {
+            a.style.display = 'none';
+          } else {
+            a.style.display = 'inline-flex';
+          }
+        });
+      }
     }
 
-    const dots = Array.from(dotsWrapper.querySelectorAll('.carousel-dot'));
-
-    // 2) Marca activa la tarjeta más centrada
-    const setActiveIndex = (idx) => {
-      cards.forEach((c) => c.classList.remove('is-active'));
-      if (cards[idx]) cards[idx].classList.add('is-active');
-
-      dots.forEach((d) => d.classList.remove('active'));
-      if (dots[idx]) dots[idx].classList.add('active');
-    };
-
-    const updateActiveCard = () => {
+    function updateActiveCard() {
       const center = carousel.scrollLeft + carousel.offsetWidth / 2;
 
-      let bestIndex = 0;
+      let bestCard = null;
       let bestDistance = Infinity;
 
-      cards.forEach((card, i) => {
+      cards.forEach((card) => {
         const cardCenter = card.offsetLeft + card.offsetWidth / 2;
         const distance = Math.abs(cardCenter - center);
         if (distance < bestDistance) {
           bestDistance = distance;
-          bestIndex = i;
+          bestCard = card;
         }
       });
 
-      setActiveIndex(bestIndex);
-    };
+      cards.forEach((card, idx) => {
+        const isActive = (card === bestCard);
+        card.classList.toggle('is-active', isActive);
+        if (dots[idx]) dots[idx].classList.toggle('active', isActive);
+      });
 
-    // Init
+      if (bestCard) updateDetailsFromCard(bestCard);
+    }
+
+    // Inicializar
     updateActiveCard();
 
-    // Scroll suave con rAF
+    // Scroll → actualizar (suave)
     let ticking = false;
     carousel.addEventListener('scroll', () => {
       if (!ticking) {
