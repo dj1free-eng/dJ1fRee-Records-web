@@ -1322,4 +1322,55 @@ body {
 .collection-details-links .detail-link:hover{
   transform: translateY(-1px);
 }
+/* =========================
+   AJUSTE TABLET (iPad)
+   Reduce tamaño de tarjetas de carrusel
+   ========================= */
+
+/* iPad vertical/horizontal (tablets) */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  /* Carruseles: menos altura para que quepa título + texto */
+  .collections-carousel .collection-card,
+  .artists-carousel .collection-card {
+    height: 380px;          /* antes seguramente 480-560 */
+    width: min(520px, 70vw);/* controla el ancho sin desmadrar */
+  }
+
+  /* Texto dentro de la tarjeta: más compacto */
+  .collection-card-content h3,
+  .artist-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: .4rem;
+  }
+
+  .collection-card-content p,
+  .artist-text {
+    font-size: .98rem;
+    line-height: 1.35;
+    max-width: 46ch; /* evita líneas eternas */
+  }
+
+  /* Botón en artistas: un pelín más pequeño */
+  .artist-btn {
+    padding: .55rem .85rem;
+    font-size: .95rem;
+  }
+}
+
+/* iPad Pro grande / tablets grandes */
+@media (min-width: 1025px) and (max-width: 1366px) {
+
+  .collections-carousel .collection-card,
+  .artists-carousel .collection-card {
+    height: 420px;
+    width: min(560px, 60vw);
+  }
+
+  .collection-card-content p,
+  .artist-text {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+}
 /* ==== FIN style.css ==== */
