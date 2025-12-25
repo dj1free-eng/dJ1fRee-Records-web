@@ -574,7 +574,9 @@ body {
 .icon-youtube {
   background: radial-gradient(circle at 30% 30%, #ff0000, #b30000);
 }
-
+.icon-amazon {
+  background: radial-gradient(circle at 30% 30%, #ff9900, #cc7a00);
+}
 /* FOOTER */
 .site-footer {
   border-top: 1px solid rgba(210, 210, 215, 0.7);
