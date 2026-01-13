@@ -1463,4 +1463,39 @@ body {
   .brand--center .brand-main{ font-size: 26px; }
   .mini-player-frame{ height: 60px; }
 }
+.brand--center{
+  margin-top: 6px;
+}
+
+.brand--center .brand-main{
+  font-size: 32px;     /* antes 26–28 → ahora respira */
+  font-weight: 800;
+  letter-spacing: .4px;
+}
+
+.brand--center .brand-sub{
+  font-size: 13px;
+  letter-spacing: 7px;
+  margin-top: 2px;
+  opacity: .6;
+}
+.mini-player-cta-block{
+  display: grid;
+  gap: 4px;
+  text-align: center;
+  margin-top: 6px;
+}
+
+.cta-eyebrow{
+  font-size: .7rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,.45);
+}
+
+.cta-main{
+  font-size: .95rem;
+  font-weight: 600;
+  color: rgba(0,0,0,.85);
+}
 /* ==== FIN style.css ==== */
