@@ -25,30 +25,28 @@
       <a href="#contact">Contacto</a>
     </nav>
   </div>
+<!-- MINI PLAYER (compacto + desplegable) -->
+<div class="mini-player" id="miniPlayer">
+  <button class="mini-player-play is-paused" id="miniPlayBtn" aria-label="Abrir reproductor">
+    ▶︎
+  </button>
 
-  <!-- MINI PLAYER (NUEVO) -->
-  <div class="mini-player" id="miniPlayer">
-    <button
-      class="mini-player-play is-paused"
-      id="miniPlayBtn"
-      aria-label="Reproducir música">
-      ▶︎
-    </button>
+  <span class="mini-player-text" id="miniPlayerText">Escucha la música del sello</span>
 
-    <span class="mini-player-text" id="miniPlayerText">
-      Escucha la música del sello
-    </span>
+  <button class="mini-player-open" id="miniOpenBtn" aria-label="Mostrar reproductor">
+    ▾
+  </button>
 
-    <!-- Embed oculto de Spotify (playlist editable desde Spotify) -->
-    <div class="mini-player-embed">
-      <iframe
-        id="spotifyEmbed"
-        src="https://open.spotify.com/embed/playlist/2p7I4r8uOg6c6WLUXT2sFD"
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-        loading="lazy">
-      </iframe>
-    </div>
+  <!-- Panel desplegable (oculto por defecto) -->
+  <div class="mini-player-panel" id="miniPanel" aria-hidden="true">
+    <iframe
+      id="spotifyEmbed"
+      src="https://open.spotify.com/embed/playlist/2p7I4r8uOg6c6WLUXT2sFD"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy">
+    </iframe>
   </div>
+</div>
 </header>
 
   <main id="top">
