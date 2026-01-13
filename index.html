@@ -11,21 +11,45 @@
 
 <body>
   <header class="site-header">
-    <div class="header-inner">
-      <a href="#top" class="brand">
-        <span class="brand-main">dJ1fRee</span>
-        <span class="brand-sub">Records</span>
-      </a>
+  <div class="header-inner">
+    <a href="#top" class="brand">
+      <span class="brand-main">dJ1fRee</span>
+      <span class="brand-sub">Records</span>
+    </a>
 
-      <nav class="main-nav">
-        <a href="#releases">Lanzamientos</a>
-        <a href="#collections">Colecciones</a>
-        <a href="#video">Vídeo</a>
-        <a href="#special">Proyectos especiales</a>
-        <a href="#contact">Contacto</a>
-      </nav>
+    <nav class="main-nav">
+      <a href="#releases">Lanzamientos</a>
+      <a href="#collections">Colecciones</a>
+      <a href="#video">Vídeo</a>
+      <a href="#special">Proyectos especiales</a>
+      <a href="#contact">Contacto</a>
+    </nav>
+  </div>
+
+  <!-- MINI PLAYER (NUEVO) -->
+  <div class="mini-player" id="miniPlayer">
+    <button
+      class="mini-player-play is-paused"
+      id="miniPlayBtn"
+      aria-label="Reproducir música">
+      ▶︎
+    </button>
+
+    <span class="mini-player-text" id="miniPlayerText">
+      Escucha la música del sello
+    </span>
+
+    <!-- Embed oculto de Spotify (playlist editable desde Spotify) -->
+    <div class="mini-player-embed">
+      <iframe
+        id="spotifyEmbed"
+        src="https://open.spotify.com/embed/playlist/2p7I4r8uOg6c6WLUXT2sFD"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
     </div>
-  </header>
+  </div>
+</header>
 
   <main id="top">
 
