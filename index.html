@@ -673,6 +673,24 @@
 
     window.addEventListener('resize', updateActiveCard);
   });
+  // ===== Mini player desplegable (sin hueco) =====
+const miniPlayer = document.getElementById('miniPlayer');
+const miniPanel  = document.getElementById('miniPanel');
+const miniPlayBtn = document.getElementById('miniPlayBtn');
+const miniOpenBtn = document.getElementById('miniOpenBtn');
+
+function toggleMini(open){
+  const willOpen = (open !== undefined) ? open : !miniPlayer.classList.contains('is-open');
+  miniPlayer.classList.toggle('is-open', willOpen);
+  miniPanel.setAttribute('aria-hidden', String(!willOpen));
+  if (miniOpenBtn) miniOpenBtn.textContent = willOpen ? '▴' : '▾';
+}
+
+// Botón play: abre el panel (Spotify controla el play dentro del iframe)
+miniPlayBtn?.addEventListener('click', () => toggleMini(true));
+
+// Flechita: abre/cierra
+miniOpenBtn?.addEventListener('click', () => toggleMini());
 </script>
 </body>
 </html>
