@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <header class="site-header">
+<header class="site-header">
   <div class="header-inner">
     <a href="#top" class="brand">
       <span class="brand-main">dJ1fRee</span>
@@ -25,37 +25,20 @@
       <a href="#contact">Contacto</a>
     </nav>
   </div>
-<!-- MINI PLAYER (compacto + desplegable) -->
-<div class="mini-player" id="miniPlayer">
-  <button class="mini-player-play is-paused" id="miniPlayBtn" aria-label="Abrir reproductor">
-    ▶︎
-  </button>
 
-  <span class="mini-player-text" id="miniPlayerText">Escucha la música del sello</span>
+  <!-- MINI REPRODUCTOR (YouTube Music – playlist oficial) -->
+  <div class="mini-player">
+    <span class="mini-player-cta">▶ Escucha la música del sello</span>
 
-  <button class="mini-player-open" id="miniOpenBtn" aria-label="Mostrar reproductor">
-    ▾
-  </button>
-
-  <!-- Panel desplegable (oculto por defecto) -->
-  <div class="mini-player-panel" id="miniPanel" aria-hidden="true">
-    
+    <iframe
+      src="https://www.youtube.com/embed/videoseries?list=PLdVWa7-Mv9o4sbh8P_pRx1ApKAdCk_OJU"
+      title="dJ1fRee Records · Playlist"
+      frameborder="0"
+      allow="autoplay; encrypted-media; picture-in-picture"
+      loading="lazy">
+    </iframe>
   </div>
-</div>
 </header>
-<p class="mini-player-cta">▶ Escucha la música del sello</p>
-<!-- MINI REPRODUCTOR (YouTube playlist) -->
-<div class="mini-player">
-  <p class="mini-player-cta">▶ Escucha la música del sello</p>
-
-  <iframe
-    src="https://www.youtube.com/embed/videoseries?list=PLdVWa7-Mv9o4sbh8P_pRx1ApKAdCk_OJU"
-    title="dJ1fRee Records · Playlist"
-    frameborder="0"
-    allow="autoplay; encrypted-media; picture-in-picture"
-    loading="lazy">
-  </iframe>
-</div>
   <main id="top">
 
     <!-- HERO PRINCIPAL -->
