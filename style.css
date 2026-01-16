@@ -55,6 +55,7 @@ body {
 
 /* HEADER */
 .site-header {
+  overflow: visible;
   position: sticky;
   top: 0;
   z-index: 20;
@@ -62,7 +63,26 @@ body {
   background: rgba(245, 245, 247, 0.9);
   border-bottom: 1px solid rgba(210, 210, 215, 0.7);
 }
+/* Efecto blur inferior del header (sensación 3D) */
+.site-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -32px;              /* se solapa con el contenido */
+  height: 32px;
 
+  pointer-events: none;
+
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(18px);
+
+  background: linear-gradient(
+    to bottom,
+    rgba(245,245,247,0.85),
+    rgba(245,245,247,0.0)
+  );
+}
 .header-inner {
   max-width: var(--content-width);
   margin: 0 auto;
