@@ -17,6 +17,8 @@
   --transition-med: 0.4s ease-out;
   --font-main: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
     "Segoe UI", sans-serif;
+
+  --header-h: 120px; /* NUEVO: reserva espacio para el header */
 }
 
 /* RESET */
@@ -42,6 +44,8 @@ body {
   font-family: var(--font-main);
   background: var(--bg-main);
   color: var(--text-main);
+
+  padding-top: var(--header-h); /* NUEVO */
 }
 
 /* LAYOUT */
