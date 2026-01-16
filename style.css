@@ -18,7 +18,7 @@
   --font-main: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
     "Segoe UI", sans-serif;
 
-  --header-h: -20px; /* NUEVO: reserva espacio para el header */
+  --header-h: 96px; /* NUEVO: reserva espacio para el header */
 }
 
 /* RESET */
@@ -1498,7 +1498,7 @@ body {
   font-weight: 600;
   color: rgba(0,0,0,.85);
 }
-main#top{
-  padding-top: var(--header-h);
+section[id]{
+  scroll-margin-top: var(--header-h);
 }
 /* ==== FIN style.css ==== */
