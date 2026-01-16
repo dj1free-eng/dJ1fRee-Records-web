@@ -18,7 +18,7 @@
   --font-main: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
     "Segoe UI", sans-serif;
 
-  --header-h: 96px; /* NUEVO: reserva espacio para el header */
+  --header-h: 60px; /* NUEVO: reserva espacio para el header */
 }
 
 /* RESET */
